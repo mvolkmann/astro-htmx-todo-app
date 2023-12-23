@@ -39,11 +39,11 @@ body {
 
 .clear-completed,
 html .clear-completed:active {
-  float: right;
-  position: relative;
-  line-height: 1.25rem;
-  text-decoration: none;
   cursor: pointer;
+  float: right;
+  line-height: 1.25rem;
+  position: relative;
+  text-decoration: none;
 }
 
 .clear-completed:hover {
