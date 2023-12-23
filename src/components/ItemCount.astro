@@ -1,9 +1,9 @@
 ---
-import { getActiveItemsCount } from "../data/todos";
+import {getActiveItemsCount} from '@data/todos';
 
 const itemsLeft = getActiveItemsCount();
 ---
 
 <span id="todo-count" class="todo-count">
-  <strong>{itemsLeft}</strong> item{itemsLeft === 1 ? "" : "s"} left
+  <strong>{itemsLeft}</strong> item{itemsLeft === 1 ? '' : 's'} left
 </span>

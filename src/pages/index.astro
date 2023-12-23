@@ -1,10 +1,10 @@
 ---
-import Footer from "../components/Footer.astro";
-import TodoList from "../components/TodoList.astro";
-import { getTodos } from "../data/todos";
-import Layout from "../layouts/Page.astro";
+import Footer from '@components/Footer.astro';
+import TodoList from '@components/TodoList.astro';
+import {getTodos} from '@data/todos';
+import Layout from '@layouts/Layout.astro';
 
-const { filter } = Astro.locals;
+const {filter} = Astro.locals;
 
 const todos = getTodos(filter);
 ---

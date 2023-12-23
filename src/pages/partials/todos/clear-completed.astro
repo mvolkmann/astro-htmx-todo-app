@@ -1,11 +1,11 @@
 ---
-import TodoList from "../../../components/TodoList.astro";
-import { clearCompleted, getTodos } from "../../../data/todos";
-import TodoUpdate from "../_todo-update.astro";
+import TodoList from '@components/TodoList.astro';
+import {clearCompleted, getTodos} from '@data/todos';
+import TodoUpdate from '../_todo-update.astro';
 
 export const partial = true;
 
-if (Astro.request.method !== "POST") {
+if (Astro.request.method !== 'POST') {
   return Astro.redirect(null, 404);
 }
 

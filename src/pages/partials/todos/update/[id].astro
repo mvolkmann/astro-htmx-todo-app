@@ -1,15 +1,15 @@
 ---
-import TodoItem from "../../../../components/TodoItem.astro";
-import { getTodoById, updateTodo } from "../../../../data/todos";
-import TodoUpdate from "../../_todo-update.astro";
+import TodoItem from '@components/TodoItem.astro';
+import {getTodoById, updateTodo} from '@data/todos';
+import TodoUpdate from '../../_todo-update.astro';
 
 export const partial = true;
 
-if (Astro.request.method !== "POST") {
+if (Astro.request.method !== 'POST') {
   return Astro.redirect(null, 404);
 }
 
-const { id } = Astro.params as { id: string };
+const {id} = Astro.params as {id: string};
 
 let todo = getTodoById(id);
 
@@ -17,11 +17,11 @@ if (!todo) {
   return Astro.redirect(null, 404);
 }
 
-const formData = await Astro.request.formData()
+const formData = await Astro.request.formData();
 
 const name = formData.get('text')?.toString() ?? todo.name;
 
-todo = updateTodo(id, { name });
+todo = updateTodo(id, {name});
 ---
 
 <TodoUpdate>

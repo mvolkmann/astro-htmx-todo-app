@@ -1,17 +1,17 @@
 ---
-import TodoUpdate from "../_todo-update.astro";
-import TodoItem from "../../../components/TodoItem.astro";
-import { createTodo } from "../../../data/todos";
+import TodoUpdate from '../_todo-update.astro';
+import TodoItem from '@components/TodoItem.astro';
+import {createTodo} from '@data/todos';
 
-if (Astro.request.method !== "POST") {
+if (Astro.request.method !== 'POST') {
   return Astro.redirect(null, 404);
 }
 
 const formData = await Astro.request.formData();
-const todo = formData.get("todo")?.toString();
+const todo = formData.get('todo')?.toString();
 
 if (!todo) {
-  return new Response('"todo" is required', { status: 400 });
+  return new Response('"todo" is required', {status: 400});
 }
 
 const newTodo = createTodo(todo);

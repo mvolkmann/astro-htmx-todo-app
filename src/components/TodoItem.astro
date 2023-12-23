@@ -1,14 +1,14 @@
 ---
-import type { Todo } from "../data/todos";
+import type {Todo} from '@data/todos';
 
 export interface Props {
   todo: Todo;
 }
 
-const { todo } = Astro.props;
+const {todo} = Astro.props;
 ---
 
-<li id={`todo-${todo.id}`} class:list={{ completed: todo.done === true }}>
+<li id={`todo-${todo.id}`} class:list={{completed: todo.done === true}}>
   <div class="view">
     <input
       type="checkbox"

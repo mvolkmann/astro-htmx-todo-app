@@ -2,6 +2,6 @@
 
 declare namespace App {
   interface Locals {
-    filter: import("./data/todos").TodoFilter;
+    filter: import('@data/todos').TodoFilter;
   }
 }

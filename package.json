@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
     "astro": "astro",
-    "lint": "prettier --write ."
+    "build": "astro check && astro build",
+    "format": "prettier --write '{public,src}/**/*.{astro,css,html,js,ts}'",
+    "lint": "prettier --write .",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.2.1",
@@ -20,6 +21,6 @@
   "devDependencies": {
     "@types/uuid": "^9.0.6",
     "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.1"
+    "prettier-plugin-astro": "^0.12.2"
   }
 }
