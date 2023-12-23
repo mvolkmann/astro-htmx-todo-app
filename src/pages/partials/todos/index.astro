@@ -1,7 +1,7 @@
 ---
-import TodoUpdate from '../_todo-update.astro';
 import TodoItem from '@components/TodoItem.astro';
 import {createTodo} from '@data/todos';
+import TodoUpdate from '@pages/partials/_todo-update.astro';
 
 if (Astro.request.method !== 'POST') {
   return Astro.redirect(null, 404);
