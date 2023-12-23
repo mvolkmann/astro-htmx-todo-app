@@ -1,37 +1,31 @@
-# htmx • Astro • [TodoMVC](http://todomvc.com)
+# astro-htmx-todo-app
 
-> htmx - high power tools for HTML
+This app was heavily inspired by
+https://github.com/tony-sull/todomvc-astro-htmx
+which was created by Tony Sullivan.
 
-## Astro Resources
+I'm still trying to decide what I think about this approach.
+I do love HTMX, but I think there are two issues with using it with Astro.
 
-- [Website](https://astro.build)
-- [Documentation](https://docs.astro.build)
-- [Discord](https://astro.build/chat)
+The first is that it requires a large number of small files.
+Perhaps some developers feel that is a pro rather than a con.
+But you have to look at a lot of files to
+get the full picture of what is going on.
 
-## HTMX Resources
+The second is that I wish it wasn't on me to handle
+various HTTP verbs in the same source file.
+Having to write code like the following
+(from src/pages/partials/todos/[id].astro) feels icky:
 
-- [Website](https://htmx.org)
-- [Documentation](https://htmx.org/docs)
-- [Discord](https://htmx.org/discord)
+```js
+if (Astro.request.method === 'DELETE') {
+  deleteById(id);
+} else if (Astro.request.method === 'PATCH') {
+  todo = updateTodo(id, {done: !todo.done});
+} else {
+  return Astro.redirect(null, 404);
+}
+```
 
-### HTMX Articles
-
-- [Locality of Behavior](https://htmx.org/essays/locality-of-behaviour)
-- [Complexity Budget](https://htmx.org/essays/complexity-budget)
-- [SPA Alternative](https://htmx.org/essays/spa-alternative)
-
-### Support
-
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/htmx)
-- [Twitter](http://twitter.com/htmx_org)
-
-*Let us [know](https://github.com/tastejs/todomvc/issues) if you discover anything worth sharing.*
-
-
-## Implementation
-
-This app was created as [Astro](https://astro.build) app using the [@astrojs/node adapter](https://docs.astro.build/en/guides/integrations-guide/node/), experimental [HTML partials support](https://github.com/withastro/astro/pull/8755), and [htmx](https://htmx.org) plus [hyperscript](https://hyperscript.org) for managing client-side interactivity and partial re-renders.
-
-## Credit
-
-Based on the original [htmx • TodoMVC](https://github.com/rajasegar/todomvc-htmx) implementation by [Rajasegar Chandran](https://twitter.com/rajasegar_c)
+It seems that Astro requires writing code like this
+in order to use it with HTMX.
