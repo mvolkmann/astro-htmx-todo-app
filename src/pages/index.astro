@@ -17,15 +17,15 @@ const todos = getTodos(filter);
         hx-post="/partials/todos"
         hx-target="#todo-list"
         hx-swap="afterbegin"
-        _="on htmx:afterOnLoad set #txtTodo.value to ''"
+        x-data
+        @submit="$nextTick(() => $el.reset())"
       >
         <input
-          type="text"
-          id="txtTodo"
+          autofocus
           class="new-todo"
           name="todo"
           placeholder="What needs to be done?"
-          autofocus
+          type="text"
         />
       </form>
     </header>
