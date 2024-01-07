@@ -13,6 +13,7 @@ const todos = getTodos(filter);
   <section class="todoapp" hx-vals={`{ "filter": "${Astro.locals.filter}" }`}>
     <header class="header">
       <h1>Todos</h1>
+      <!-- This form is used to add a new todo. -->
       <form
         hx-post="/partials/todos"
         hx-target="#todo-list"
@@ -34,6 +35,7 @@ const todos = getTodos(filter);
       <input type="checkbox" id="toggle-all" class="toggle-all" />
       <label for="toggle-all">Mark all as complete</label>
       -->
+      <!-- This renders the list of existing todos. -->
       <ul id="todo-list" class="todo-list">
         <TodoList {todos} />
       </ul>

@@ -1,8 +1,10 @@
 ---
+// This handles HTTP requests to /partials/todos.
 import TodoItem from '@components/TodoItem.astro';
 import {createTodo} from '@data/todos';
 import TodoUpdate from '@pages/partials/_todo-update.astro';
 
+// Only handle POST requests.
 if (Astro.request.method !== 'POST') {
   return Astro.redirect(null, 404);
 }
